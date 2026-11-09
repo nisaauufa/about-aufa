@@ -2,6 +2,7 @@
 
 import { useRouter } from 'next/navigation';
 import MessageBoard from '@/components/MessageBoard';
+import Link from 'next/link';
 
 export default function Home() {
   const router = useRouter();
@@ -24,14 +25,35 @@ export default function Home() {
         </div>
       </div>
 
-      <div 
-        onClick={() => router.push('/portofolio')}
-        className="mt-6 px-6 py-2 bg-[#ecd0d5] text-[#8c6b71] rounded-full hover:bg-[#e0a6b1] hover:text-white transition-colors cursor-pointer font-medium shadow-sm"
-      >
-        Lihat Portofolio
+      {/* --- TOMBOL PORTFOLIO, CV & HUBUNGI SAYA --- */}
+      <div className="mt-6 flex flex-wrap justify-center gap-4">
+        <div 
+          onClick={() => router.push('/portofolio')}
+          className="px-6 py-2 bg-[#ecd0d5] text-[#8c6b71] rounded-full hover:bg-[#e0a6b1] hover:text-white transition-colors cursor-pointer font-medium shadow-sm"
+        >
+          Lihat Portofolio
+        </div>
+        
+        <a 
+          href="/cv-aufa.pdf" 
+          target="_blank"
+          className="px-6 py-2 bg-white border border-[#c77b89] text-[#c77b89] rounded-full hover:bg-[#fdf4f5] transition-colors cursor-pointer font-medium shadow-sm"
+        >
+          📄 Tautan CV
+        </a>
+
+        {/* Tombol Telegram */}
+        <a 
+          href="https://t.me/nisaauufa" 
+          target="_blank"
+          className="px-6 py-2 bg-[#2AABEE] text-white rounded-full hover:bg-[#2298d6] transition-colors cursor-pointer font-medium shadow-sm flex items-center gap-2"
+        >
+          💬 Hubungi Saya
+        </a>
       </div>
 
       <div className="w-full max-w-4xl mt-32 pt-24 border-t border-[#f3d9dd]">
+        <h2 className="text-2xl font-serif text-[#b66675] italic mb-8">Tinggalkan Pesan & Testimoni</h2>
         <MessageBoard />
       </div>
 
